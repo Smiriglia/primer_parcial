@@ -1,0 +1,30 @@
+.container-paises {
+    height: 400px;
+    overflow: auto;
+}
+
+.container-paises::-webkit-scrollbar {
+    width: 10px;
+}
+
+.container-paises::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+}
+
+.container-paises::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #59d5c9;
+}
+
+.error {
+    color: rgb(172, 0, 0);
+}
+
+.flag-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,51 @@
+<div class="view">
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form>
+                <h1>Crear Cuenta</h1>
+                @if(errorMessageUp)
+                {
+                <div class="error-message">{{errorMessageUp}}</div>
+                }
+                <span>O usa tu email para registrarte</span>
+                <input type="text" placeholder="Name" name="username" [(ngModel)]="usuarioSingUp.username" />
+                <input type="email" placeholder="Email" name="email" [(ngModel)]="usuarioSingUp.email" />
+                <input type="password" placeholder="Password" name="password" [(ngModel)]="usuarioSingUp.password" />
+                <button (click)="singUp()">Registrate</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form>
+                <h1>Ingresa</h1>
+                @if(errorMessageIn)
+                {
+                <div class="error-message">{{errorMessageIn}}</div>
+                }
+
+                <span>or use your account</span>
+                <input type="email" placeholder="Email" name="email" [(ngModel)]="usuarioSingIn.email" />
+                <input type="password" placeholder="Password" name="password" [(ngModel)]="usuarioSingIn.password" />
+                <a href="#">Olvidaste tu contraseña?</a>
+                <button (click)="singIn()">Ingresa</button>
+                <div class="autofill-container">
+                    <button (click)="fillTest()" class="btn-test">test</button>
+                    <button (click)="fillAdmin()" class="btn-admin">admin</button>
+                </div>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Bienvenido de nuevo!</h1>
+                    <p>Para mantenerte conectado por favor ingresa con tu informacion personal</p>
+                    <button class="ghost" id="signIn" (click)="goToSignIn()">Ingresa</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hola, Usuario!</h1>
+                    <p>Ingresa tu informacion personal y comenza tu trayecto con nosotros</p>
+                    <button class="ghost" id="signUp" (click)="goToSignUp()">Registrate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

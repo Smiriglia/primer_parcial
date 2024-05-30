@@ -1,0 +1,14 @@
+.pais-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 20px;
+}
+.pais:hover .pais-container {
+    scale: 0.9;
+}
+
+.selected .pais-container {
+    border: cyan 2px solid;
+
+}

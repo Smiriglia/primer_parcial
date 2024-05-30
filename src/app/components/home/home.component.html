@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center">
+
+    <ul class="list-group mb-3">
+        @for (key of keys; track $index) {
+            <li class="pais list-group-item d-flex justify-content-between lh-condensed">
+                <h6>{{key}}</h6>
+                @if (key == 'avatar_url') {
+                    <img style="width: 100px;" [src]="profile![key]" alt="foto de perfil">
+                }
+                @else {
+                    <h6>{{profile![key]}}</h6>
+                }
+            </li>
+        }
+    </ul>
+</div>
