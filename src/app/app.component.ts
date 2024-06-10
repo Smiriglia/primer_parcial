@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +11,4 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'pp';
-  authService = inject(AuthService);
 }
