@@ -1,4 +1,7 @@
 import { Routes } from '@angular/router';
+import { isLoggedInGuard } from './guards/is-logged-in.guard';
+import { isNotLoggedInGuard } from './guards/is-not-logged-in.guard';
+import { isAdminGuard } from './guards/is-admin.guard';
 
 export const routes: Routes = [
 
@@ -11,12 +14,27 @@ export const routes: Routes = [
     {
         path: 'login', loadComponent: () => import('./components/login/login.component').then(
             x => x.LoginComponent
-        )
+        ),
+        canActivate: [isNotLoggedInGuard],
     },
     {
         path: 'alta-repartidor', loadComponent: () => import('./components/alta-repartidor/alta-repartidor.component').then(
             x => x.AltaRepartidorComponent
-        )
+        ),
+        canActivate: [isLoggedInGuard],
+    },
+    {
+        path: 'detalle-repartidor', loadComponent: () => import('./components/detalle-repartidor/detalle-repartidor.component').then(
+            x => x.DetalleRepartidorComponent
+        ),
+        canActivate: [isLoggedInGuard],
+    },
+
+    {
+        path: 'helados', loadComponent: () => import('./components/helados/helados.component').then(
+            x => x.HeladosComponent
+        ),
+        canActivate: [isAdminGuard],
     },
 
     {

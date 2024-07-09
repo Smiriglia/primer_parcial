@@ -9,8 +9,8 @@ import { PaisInterface } from '../interfaces/pais.interface';
 export class PaisesService {
   http = inject(HttpClient);  
   
-  getCountries() : Observable<PaisInterface[]> {
-    return this.http.get<Array<any>>('https://restcountries.com/v3.1/all')
+  getCountries(region : string) : Observable<PaisInterface[]> {
+    return this.http.get<Array<any>>(`https://restcountries.com/v3.1/region/${region}`)
     .pipe(
       map((values) => {
         return values.map((val) => {

@@ -6,10 +6,25 @@
 }
 @else {
     <ul class="list-group mb-3">
-        @for (pais of paises; track $index) {
+        <h3>Europa</h3>
+        @for (pais of paisesEuropa; track $index) {
             <li [class.selected]="selected == pais" (click)="sendPais(pais)" role="button" class="pais list-group-item d-flex justify-content-between lh-condensed">
                 <div class="pais-container d-flex justify-content-between">
-                    <img style="width: 100px;" [src]="pais.flag" [alt]="pais.alt">
+                    <img style="width: 100px;" [src]="pais.flag" [alt]="'bandera de ' + pais.official">
+                    <div>
+                        <h6 class="my-0">{{pais.official}}</h6>
+                        <small class="text-muted">{{pais.common}}</small>
+                    </div>
+                    <span class="text-muted">{{pais.region}}</span>
+                </div>
+            </li>
+        }
+
+        <h3>Africa</h3>
+        @for (pais of paisesAfrica; track $index) {
+            <li [class.selected]="selected == pais" (click)="sendPais(pais)" role="button" class="pais list-group-item d-flex justify-content-between lh-condensed">
+                <div class="pais-container d-flex justify-content-between">
+                    <img style="width: 100px;" [src]="pais.flag" [alt]="'bandera de ' + pais.official">
                     <div>
                         <h6 class="my-0">{{pais.official}}</h6>
                         <small class="text-muted">{{pais.common}}</small>

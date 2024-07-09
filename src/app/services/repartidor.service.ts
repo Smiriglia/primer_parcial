@@ -10,14 +10,14 @@ import RepartidorInterface from '../interfaces/repartidor.interface';
 export class RepartidorService {
   firestore = inject(Firestore);
 
-  addActor(actor : RepartidorInterface) {
+  addRepartidor(Repartidor : RepartidorInterface) {
     let col = collection(this.firestore, 'repartidores');
-    const promise = addDoc(col, actor);
+    const promise = addDoc(col, Repartidor);
 
     return from(promise);
   }
 
-  getActores() {
+  getRepartidores() {
     let col = collection(this.firestore, 'repartidores');
     return collectionData(col, { idField: 'id' }) as Observable<RepartidorInterface[]>;
   }

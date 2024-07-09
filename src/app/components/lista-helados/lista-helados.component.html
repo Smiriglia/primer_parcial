@@ -1,0 +1,22 @@
+<div class="order-md-2 mb-4">
+    <table class="table table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Sabor</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Peso</th>
+                <th scope="col">Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (helado of helados; track $index) {
+            <tr scope="row" (click)="select(helado)" class="helado" [class.selected]="selectedHelado?.id == helado.id" role="button">
+                <td>{{ helado.sabor }}</td>
+                <td>{{ helado.tipo }}</td>
+                <td>{{ helado.peso }}</td>
+                <td>{{ helado.precio }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

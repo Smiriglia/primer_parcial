@@ -1,0 +1,17 @@
+.chart {
+    width: 50%;
+    translate: 50%;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+              -10px -10px 30px rgba(255, 255, 255, 0.5),
+              inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background: #f0f0f0;
+}
+
+@media (min-width: 0.00px) and (max-width: 1000.00px) {
+    .chart {
+        width: 100%;
+        translate: 0;
+    }
+}

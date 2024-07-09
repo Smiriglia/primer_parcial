@@ -1,5 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { Firestore, addDoc, collection, collectionData, getDocs, query, where } from '@angular/fire/firestore';
+import { UserInterface } from '../interfaces/user.interface';
+import { Observable } from 'rxjs';
+import RepartidorInterface from '../interfaces/repartidor.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,32 +15,27 @@ export class FirestoreService {
     addDoc(col, data);
   }
 
-  GetLogins(){
-    let col = collection(this.firestore, 'logins');
-    
-    const observable = collectionData(col);
-
-    return observable;
-  }
-
-  async obtenerInfoUsuario(uid:string)
+  async obtenerInfoUsuario(uid:string) : Promise<UserInterface | null>
   {
     try
     {
       let col = collection(this.firestore, 'users');
       const consulta = query(col, where("uid", "==", uid));
       const consultaEjecuto = await getDocs(consulta);
-      let datos = false;
-      consultaEjecuto.forEach((datos) => 
+
+      if(consultaEjecuto.docs.length > 0)
       {
-        return datos.data();
-      });   
+        console.log(consultaEjecuto.docs[0].data());
+        return consultaEjecuto.docs[0].data() as any;
+      }
+
       return null;
-     }
+    }
     catch(error:any)
     {
-      console.log(error.code);
       return null;
     }
   }
+
+
 }

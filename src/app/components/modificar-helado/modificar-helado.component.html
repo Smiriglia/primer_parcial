@@ -1,0 +1,66 @@
+@if (loaderState.loading) {
+    <div class="loader-container">
+      <app-loader [state]="loaderState.state"></app-loader>
+    </div>
+}
+@else {
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <ul class="list-unstyled mt-3 mb-4">
+            <li>
+                <label for="sabor">Sabor</label>
+                <input type="text" class="form-control bg-dark text-white" formControlName="sabor" readonly>
+                <div class="error">
+                    @if(sabor?.hasError('required'))
+                    {
+                        Debe tener un sabor
+                    }
+                    @else if(sabor?.hasError('pattern'))
+                    {
+                        Debe ser contener solo letras
+                    }
+                </div>
+            </li>
+            <li>
+                <label for="tipo">Tipo</label>
+                <select formControlName="tipo" class="form-select bg-dark text-white form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option value="agua">Agua</option>
+                    <option value="crema">Crema</option>
+                  </select>
+                <div class="error">
+                    @if(tipo?.hasError('required'))
+                    {
+                        Debe tener un tipo
+                    }
+                </div>
+            </li>
+            <li>
+                <label for="precio">precio</label>
+                <input type="number" class="form-control bg-dark text-white" for="precio" formControlName="precio">
+                <div class="error">
+                    @if(precio?.hasError('required'))
+                    {
+                        Debe tener un precio
+                    }
+                    @else if (precio?.hasError('min')) {
+                        El precio debe ser mayor a 0
+                    }
+                </div>
+            </li>
+            <li>
+                <label for="peso">peso</label>
+                <input type="number" class="form-control bg-dark text-white" for="peso" formControlName="peso">
+                <div class="error">
+                    @if(peso?.hasError('required'))
+                    {
+                        El repartidor debe tener un peso
+                    }
+                    @else if (peso?.hasError('min') || peso?.hasError('max')) {
+                        El peso debe estar entre 250 gramos y 1000 gramos
+                    }
+                </div>
+            </li>
+        </ul>
+        <button [disabled]="!form.valid" type="submit" class="w-100 btn btn-lg btn-primary">Modificar</button>
+    </form>
+}
+

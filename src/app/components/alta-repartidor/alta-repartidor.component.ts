@@ -35,12 +35,12 @@ export class AltaRepartidorComponent {
       dni: new FormControl("", [Validators.required, Validators.pattern('^[0-9]+$'), Validators.minLength(11), Validators.maxLength(11)]),
       edad: new FormControl("", [Validators.required, Validators.min(18)]),
       capacidadTransporte: new FormControl("", [Validators.required, Validators.min(1)]),
+      unidad: new FormControl("", [Validators.required]),
       paisOrigen: this.fb.group({
         region: ['', Validators.required],
         official: ['', Validators.required],
         common: ['', Validators.required],
-        flag: ['', Validators.required],
-        alt: ['',]
+        flag: ['', Validators.required]
       })
     });
   }
@@ -65,6 +65,10 @@ export class AltaRepartidorComponent {
     return this.form.get('paisOrigen') as FormGroup;
   }
 
+  get unidad() {
+    return this.form.get('unidad') as FormGroup;
+  }
+
   seleccionarPais(pais: PaisInterface) {
     this.paisSeleccionado = pais;
     
@@ -74,10 +78,10 @@ export class AltaRepartidorComponent {
     });
   }
 
-  addActor() {
+  addRepartidor() {
     if(this.form.valid) {
       this.loaderState.loading = true;
-      this.repartidorService.addActor(this.form.value)
+      this.repartidorService.addRepartidor(this.form.value)
       .subscribe(
         {
           next: () => {

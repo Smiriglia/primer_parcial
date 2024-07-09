@@ -1,0 +1,18 @@
+<div>
+    <div class="row" style="height: 200px;">
+        <div class="flag-container col-6">
+            <img [src]="pais.flag || 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Icon-round-Question_mark.svg/1200px-Icon-round-Question_mark.svg.png' " alt="Bandera de pais seleccionado" style="max-width: 100%; max-height: 100%;">
+        </div>
+        <div class="col-6">
+            <label for="region">Region:</label>
+            <input class="form-control" formControlName="region" [value]="pais.region" readonly>
+        
+            <label for="official">Nombre Oficial:</label>
+            <input class="form-control" formControlName="official" [value]="pais.official" readonly>
+        
+            <label for="common">Nombre Comun</label>
+            <input class="form-control" formControlName="common" [value]="pais.common" readonly>
+        </div>
+
+    </div>
+</div>

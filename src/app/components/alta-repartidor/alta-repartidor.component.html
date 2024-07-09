@@ -8,7 +8,7 @@
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
                 alt="" width="72" height="72">
-            <h2>Alta actor</h2>
+            <h2>Alta repartidor</h2>
         </div>
     
         <div class="row">
@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Datos</h4>
-                <form [formGroup]="form" (ngSubmit)="addActor()">
+                <form [formGroup]="form" (ngSubmit)="addRepartidor()">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="nombre">Nombre</label>
@@ -25,7 +25,7 @@
                             <div class="error">
                                 @if(nombre?.hasError('required'))
                                 {
-                                    El actor debe tener un nombre
+                                    El repartidor debe tener un nombre
                                 }
                                 @else if (nombre?.hasError('pattern')) {
                                     El nombre solo debe contener letras
@@ -38,7 +38,7 @@
                             <div class="error">
                                 @if(dni?.hasError('required'))
                                 {
-                                    El actor debe tener un dni
+                                    El repartidor debe tener un dni
                                 }
                                 @else if (dni?.hasError('pattern')) {
                                     El dni solo debe contener numeros
@@ -54,7 +54,7 @@
                             <div class="error">
                                 @if(edad?.hasError('required'))
                                 {
-                                    El actor debe tener una edad
+                                    El repartidor debe tener una edad
                                 }
                                 @else if (edad?.hasError('min')) {
                                     El repartidor debe ser mayor de 18 años
@@ -67,7 +67,7 @@
                             <div class="error">
                                 @if(capacidadTransporte?.hasError('required'))
                                 {
-                                    El actor debe tener una edad
+                                    El repartidor debe tener una capacidad de transporte
                                 }
                                 @else if (capacidadTransporte?.hasError('min')) {
                                     El repartidor cargar al menos 1 pote de helado
@@ -105,8 +105,7 @@
                         </div>
                     
                         <input id="flag" formControlName="flag" readonly hidden>
-                        <input id="alt" formControlName="alt" readonly hidden>
-                      </div>
+                    </div>
     
                     @if(paisOrigen.invalid){
                         <div class="error">

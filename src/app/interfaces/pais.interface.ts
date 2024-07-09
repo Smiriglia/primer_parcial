@@ -4,5 +4,4 @@ export interface PaisInterface {
     official: string,
     common: string,
     flag: string,
-    alt: string,
 };

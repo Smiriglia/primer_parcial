@@ -1,0 +1,13 @@
+<div class="order-md-2 mb-4">
+    <ul class="list-group mb-3">
+        @for (repartidor of repartidores; track $index) {
+            <li role="button" (click)="select(repartidor)" [class.selected]="selectedRepartidor?.id == repartidor.id" class="repartidor list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <img style="width: 100px;" [src]="repartidor.paisOrigen.flag" alt="bandera del repartidor">
+                    <h6 class="my-0">{{repartidor.nombre}}</h6>
+                </div>
+                <small class="text-muted">{{ repartidor.dni }}</small>
+            </li>
+        }
+    </ul>
+</div>

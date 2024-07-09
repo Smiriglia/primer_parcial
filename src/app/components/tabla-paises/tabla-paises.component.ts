@@ -13,7 +13,8 @@ import { PaisesService } from '../../services/paises.service';
 export class TablaPaisesComponent {
   @Output() onSelect = new EventEmitter<PaisInterface>();
   paisesService = inject(PaisesService); 
-  paises : PaisInterface[] = [];
+  paisesEuropa : PaisInterface[] = [];
+  paisesAfrica : PaisInterface[] = [];
   selected : PaisInterface | null = null;
   loaderState = {
     loading: false,
@@ -25,11 +26,24 @@ export class TablaPaisesComponent {
 
   getCountries() {
     this.loaderState.loading = true;
-    this.paisesService.getCountries()
+    this.paisesService.getCountries('europe')
     .subscribe(
       {
         next: (paises) => {
-          this.paises = paises;
+          this.paisesEuropa = paises;
+          this.loaderState.loading = false;
+        },
+        error: (err) => {
+          this.loaderState.state = "wrong";
+        }
+      }
+    );
+
+    this.paisesService.getCountries('africa')
+    .subscribe(
+      {
+        next: (paises) => {
+          this.paisesAfrica = paises;
           this.loaderState.loading = false;
         },
         error: (err) => {

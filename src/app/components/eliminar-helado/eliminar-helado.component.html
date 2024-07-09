@@ -1,0 +1,9 @@
+@if (loaderState.loading) {
+    <div class="loader-container">
+        <app-loader [state]="loaderState.state"></app-loader>
+    </div>
+}
+@else {
+<p>Click en el boton de abajo si estas seguro de eliminar el helado seleccionado</p>
+<button [disabled]="disable" (click)="eliminar()" type="button" class="w-100 btn btn-lg btn-primary">Eliminar</button>
+}

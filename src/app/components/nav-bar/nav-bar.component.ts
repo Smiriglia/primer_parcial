@@ -9,27 +9,20 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
   authService = inject(AuthService);
   router = inject(Router);
 
-  ngOnInit(): void {
-    this.authService.user$.subscribe(
-      (user) => {
-        if (user)
-        {
-          this.authService.currentUserSignal.set({
-            uid: user.uid,
-            email: user.email!,
-            username: user.displayName ? user.displayName : "User" ,
-          });
-        }
-        else
-        {
-          this.authService.currentUserSignal.set(null);
-        }
-      }
-    );
+  isLoggedIn() {
+    return this.authService.currentUserSignal() != null;
   }
 
+  isAdmin() {
+    return this.isLoggedIn() && this.authService.currentUserSignal()?.role == 'admin';
+  }
+
+  logOut() {
+    this.authService.logOut();
+    this.router.navigateByUrl('/home');
+  }
 }
