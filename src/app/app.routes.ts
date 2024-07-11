@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { isLoggedInGuard } from './guards/is-logged-in.guard';
 import { isNotLoggedInGuard } from './guards/is-not-logged-in.guard';
 import { isAdminGuard } from './guards/is-admin.guard';
+import { aceptoTerminosGuard } from './guards/acepto-terminos.guard';
 
 export const routes: Routes = [
 
@@ -35,6 +36,14 @@ export const routes: Routes = [
             x => x.HeladosComponent
         ),
         canActivate: [isAdminGuard],
+    },
+
+        {
+        path: 'aceptar-terminos', loadComponent: () => import('./components/aceptar-terminos/aceptar-terminos.component').then(
+            x => x.AceptarTerminosComponent
+        ),
+        canActivate: [isLoggedInGuard],
+        canDeactivate: [aceptoTerminosGuard],
     },
 
     {

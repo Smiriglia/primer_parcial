@@ -1,0 +1,43 @@
+.fullscreen-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+.message-box {
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2),
+                0px 6px 6px rgba(0, 0, 0, 0.1);
+}
+.cool-capsule-button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2), 
+                0px 6px 6px rgba(0, 0, 0, 0.1);
+}
+.cool-capsule-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3), 
+                0px 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cool-capsule-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed; 
+    box-shadow: none; 
+    transition: none; 
+}
+
+.error {
+    color: rgb(172, 0, 0);
+}
